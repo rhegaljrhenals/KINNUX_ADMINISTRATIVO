@@ -1,0 +1,321 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>KINNUX:::(Mundial)</title>
+        <link href="StylesKINNUX/styleafilia.css" rel="stylesheet" type="text/css" />
+<%--    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />--%>
+    <style type="text/css">
+        
+        .botonmail{
+	height: 26px;
+	margin: 0px;
+	width: 223px;
+	background: url(../images/back_botonenvi.png) repeat-x;
+	margin:0px auto 0px auto;
+	color:#005daa;
+	border:#005daa 1px solid;
+	text-transform: none;
+	font-size:14px;
+	cursor:pointer;
+	margin-top:0px;
+	font-weight:600;
+}
+
+.botonmail:hover{
+	height: 26px;
+	margin: 0px;
+	width: 223px;
+	background: #0078C1;
+	margin:0px auto 0px auto;
+	margin-top:0px;
+	color:#FFF;
+}
+
+    .char1
+    {
+     width:25px; 
+     height:25px; 
+     margin:auto; 
+     background:url(images/100_1.png) top center no-repeat; 
+     font-size:16px; 
+     color:#FFF; 
+     line-height:65px;
+     }
+
+     .botommore{
+	border:#CCC 1px solid;
+	padding:8px 5px 8px 30px;
+	width:130px;
+	font-size:13px;
+	font-weight:bold;
+	margin: 2px auto;
+	background: url(images/icon_botom.png) left top no-repeat;
+	-webkit-border-radius: 5px;
+	color:#077;
+	text-decoration:none;
+}
+.botommore:hover{
+	border:#CCC 1px solid;
+	padding:8px 5px 8px 30px;
+	width:130px;
+	font-size:13px;
+	font-weight:bold;
+	margin: 2px auto;
+	background: #FFF url(images/icon_botom2.png) left top no-repeat;
+	-webkit-border-radius: 5px;
+	color:#769D00;
+	text-decoration:none;
+}
+
+    .accordionHeader {     
+        color: white;   
+        background-color: white;   
+        font-family: "Times New Roman", Times, serif;   
+        font-size: 12px;   
+        font-weight: 400;   
+        padding: 5px;   
+        margin-top: 5px;   
+        cursor: pointer;
+            text-align: left;
+        }   
+
+     .accordionHeaderSelected {   
+        border: 1px solid #2F4F4F;   
+        color: white;   
+        background-color: #005daa;   
+        font-family: AvantGarde Bk BT;   
+        font-size: 12px;   
+        font-weight: bold;   
+        padding: 5px;   
+        margin-top: 5px;   
+        cursor: pointer;   
+        }   
+
+      .accordionContent {   
+        background-color: #005daa;   
+        border: 1px dashed #2F4F4F;   
+        border-top: none;   
+        padding: 5px;   
+        padding-top: 10px;   
+        }   
+        .style1
+        {
+            width: 100%;
+        }
+        .style3
+        {
+            width: 1%;
+        }
+
+
+        .botones {
+                 color: #FFFFFF; 
+                 font-weight: 700; 
+                 font-family: 'Courier New', Courier, monospace; 
+                 background-color: #006699;
+        }
+
+        </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tabletop">
+  <tr>
+  <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+    <td width="9%" align="center">
+            <asp:Image ID="Image1" runat="server"  width="122" height="122" ImageUrl="images/logo.png"  />
+    </td>
+    <td width="91%">
+        <asp:Image ID="Image2" runat="server"  width="440" height="40" ImageUrl="Imagenes/titleam.fw.png" />
+    </td>
+  </tr>
+</table>
+
+ 
+
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="tabletop2">
+  <tr>
+    <td align="center" class="titletop">
+                                                    <asp:Label ID="Label3" runat="server" CssClass="style3" 
+                                                        style="font-weight: 700"></asp:Label>
+        </td>
+    <td align="right">
+        <table class="style1" style="width: 650px">
+            <tr>
+                
+                <td>
+
+
+                                                    <table style="width: 300px">
+                                                        <tr>
+                                                            <td align="center">
+
+
+                                                    <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/Imagenes/distribuidor1.png" Width="40px" />
+                                                            </td>
+                                                            <td align="center">
+                                                    <asp:ImageButton ID="ImageButton2" runat="server" Height="40px" ImageUrl="~/Imagenes/salir.png" Width="40px" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">Consultar Distribuidor</td>
+                                                            <td align="center">Cerrar Sesion</td>
+                                                        </tr>
+                                                    </table>
+                </td>
+                               
+            </tr>
+        </table>
+        </td>
+
+
+
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" class="table-responsive" >
+  <tr>
+    <td class="separadormenu" valign="top" width="350px">
+                                    
+                                    <asp:Accordion ID="Accordion1" runat="server" ContentCssClass="" 
+                                                    CssClass="accordionHeader" ForeColor="#000066" FramesPerSecond="30" 
+                                                    HeaderCssClass="accordionHeaderSelected" HeaderSelectedCssClass="" 
+                                                    Height="1085px" TransitionDuration="250" Width="100%" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px">
+                                                    <Panes>
+                                                        <asp:AccordionPane ID="AccordionPane1" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                1- Seguridad
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table2" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                        <asp:AccordionPane ID="AccordionPane2" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                2- Configuración Básica
+                                                            </Header>
+                                                            <Content>
+                                                                                                                                <asp:Table ID="Table3" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                        <asp:AccordionPane ID="AccordionPane3" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                3- Inventarios
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table1" runat="server">
+                                                                
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                        <asp:AccordionPane ID="AccordionPane6" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                4- Reportes Bodega Principal
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table4" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                        <asp:AccordionPane ID="AccordionPane4" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                5- Reportes Varios
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table5" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                        <asp:AccordionPane ID="AccordionPane5" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                6- Herramientas
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table6" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+
+                                                        <asp:AccordionPane ID="AccordionPane7" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                7- Reportes De Facturacion
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table7" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                        
+                                                        <asp:AccordionPane ID="AccordionPane8" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                8- Reportes De Comisiones
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table8" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+
+                                                        <asp:AccordionPane ID="AccordionPane9" runat="server" ContentCssClass="" 
+                                                            HeaderCssClass="">
+                                                            <Header>
+                                                                9- Reportes Viajes y Eventos
+                                                            </Header>
+                                                            <Content>
+                                                                <asp:Table ID="Table9" runat="server">
+                                                                </asp:Table>
+                                                            </Content>
+                                                        </asp:AccordionPane>
+                                                    </Panes>
+                                                </asp:Accordion>
+                                </td>
+    <td class="contenidoMain" valign="top" style="padding:10px;">
+    
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+	</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td class="textdown">
+        <asp:Label ID="Label1" runat="server" Text=""></asp:Label></td>
+  </tr>
+</table>
+		</form>
+</body>
+</html>

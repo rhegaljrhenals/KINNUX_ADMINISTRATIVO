@@ -1,0 +1,231 @@
+﻿Imports System.Data
+Imports System.IO
+
+Partial Class Reportes_wfEncuestaKinitrox
+    Inherits System.Web.UI.Page
+
+    Dim calificacionCartagena As New clsTtCalifCartagena
+    Dim paises As New clsPaise
+    Dim operaciones As New clsOperacione
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If IsPostBack = False Then
+            mostrarDatosAll()
+            mostrarAfiliadosAfiliadosEncuestaFormaRapida()
+            'Me.TextBox1.Text = Now.Date.ToString("yyyy/MM/dd")
+            'Me.TextBox2.Text = Now.Date.ToString("yyyy/MM/dd")
+            Me.MultiView1.ActiveViewIndex = 0
+        End If
+    End Sub
+
+    Sub mostrarAfiliadosAfiliadosEncuestaFormaRapida()
+        Dim sql As String
+        Dim tabla As New DataTable
+        'sql = "select * from vw_resultadoEncuestaSistemaCirculatorio"
+        sql = "select *,'(' + codigoafiliado + ') ' + pnombre + ' ' + papellido as patrocinador from vw_resultadoencuestasistemacirculatoriorapida" & _
+        " order by fecha desc"
+        With operaciones
+            tabla = .DevuelveDato(sql)
+            If tabla.Rows.Count <> 0 Then
+                Me.GridView4.DataSource = tabla
+                Me.GridView4.DataBind()
+                '
+                'actualizaGrilla()
+            Else
+                Me.GridView4.DataSource = Nothing
+                Me.GridView4.DataBind()
+            End If
+        End With
+    End Sub
+
+    'Sub mostrarDatosAll()
+    '    Dim sql As String
+    '    Dim tabla As New DataTable
+    '    sql = "select * from vw_afiliadosEncuestaKinitrox order by fecha desc"
+    '    With operaciones
+    '        tabla = .DevuelveDato(sql)
+    '        If tabla.Rows.Count <> 0 Then
+    '            Me.GridView2.DataSource = tabla
+    '            Me.GridView2.DataBind()
+    '            '
+    '            actualizaGrilla()
+    '        Else
+    '            Me.GridView2.DataSource = Nothing
+    '            Me.GridView2.DataBind()
+    '        End If
+    '    End With
+    'End Sub
+
+    Sub actualizaGrilla()
+        Dim y As Integer
+        Dim sql As String
+        Dim tabla As New DataTable
+        For y = 0 To Me.GridView2.Rows.Count - 1
+            sql = "select * from detalleEncuestaSistemaCirculatorio where idAfiliado=" & Me.GridView2.Rows(y).Cells(1).Text
+            With operaciones
+                tabla = .DevuelveDato(sql)
+                If tabla.Rows.Count <> 0 Then
+                    Me.GridView2.Rows(y).Cells(10).Text = "Si"
+                Else
+                    Me.GridView2.Rows(y).Cells(10).Text = "No"
+                    Me.GridView2.Rows(y).ForeColor = Drawing.Color.Red
+                End If
+            End With
+        Next
+    End Sub
+
+    Protected Sub ImageButton2_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ImageButton2.Click
+        'panelDatos.Visible = False
+        If Me.GridView2.Rows.Count <> 0 Then
+            ExportToExcel("Cancun2016.xls", Me.GridView2)
+        Else
+
+        End If
+
+    End Sub
+
+    Private Sub ExportToExcel(ByVal nameReport As String, ByVal wControl As GridView)
+        'Me.GridView2.Columns(0).Visible = False
+        Dim responsePage As HttpResponse = Response
+        Dim sw As New StringWriter()
+        Dim htw As New HtmlTextWriter(sw)
+        Dim pageToRender As New Page()
+        Dim form As New HtmlForm()
+        form.Controls.Add(wControl)
+        pageToRender.Controls.Add(form)
+        responsePage.Clear()
+        responsePage.Buffer = True
+        responsePage.ContentType = "application/vnd.ms-excel"
+        responsePage.AddHeader("Content-Disposition", "attachment;filename=" & nameReport)
+        responsePage.Charset = "UTF-8"
+        responsePage.ContentEncoding = Encoding.Default
+        pageToRender.RenderControl(htw)
+        responsePage.Write(sw.ToString())
+        responsePage.End()
+    End Sub
+
+    Protected Sub GridView2_RowDeleting(sender As Object, e As GridViewDeleteEventArgs) Handles GridView2.RowDeleting
+        Dim sql As String
+        Dim idAfiliado As Integer
+        idAfiliado = Val(Me.GridView2.Rows(e.RowIndex).Cells(1).Text)
+        '
+        sql = "delete from afiliadosEncuestaSistemaCirculatorio where idafiliado=" & idAfiliado
+        With operaciones
+            .Accion(sql)
+        End With
+        '
+        sql = "delete from detalleEncuestaSistemaCirculatorio where idafiliado=" & idAfiliado
+        With operaciones
+            .Accion(sql)
+        End With
+        '
+        Me.GridView3.DataSource = Nothing
+        Me.GridView3.DataBind()
+        '
+        mostrarDatosAll()
+    End Sub
+
+
+    Protected Sub GridView2_SelectedIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView2.SelectedIndexChanging
+        mostrarEncuesta(Me.GridView2.Rows(e.NewSelectedIndex).Cells(1).Text)
+    End Sub
+
+    Sub mostrarEncuesta(ByVal idAfiliado As Integer)
+        Dim sql As String
+        Dim tabla As New DataTable
+        sql = "select * from vw_resultadoEncuestaSistemaCirculatorio where idafiliado=" & idAfiliado & " order by numero"
+        With operaciones
+            tabla = .DevuelveDato(sql)
+            If tabla.Rows.Count <> 0 Then
+                Me.GridView3.DataSource = tabla
+                Me.GridView3.DataBind()
+            Else
+                Me.GridView3.DataSource = Nothing
+                Me.GridView3.DataBind()
+            End If
+        End With
+    End Sub
+
+    Protected Sub ImageButton1_Click(sender As Object, e As ImageClickEventArgs) Handles ImageButton1.Click
+        Me.GridView3.DataSource = Nothing
+        Me.GridView3.DataBind()
+        '
+        Me.GridView5.DataSource = Nothing
+        Me.GridView5.DataBind()
+        '
+        mostrarDatosAll()
+        mostrarAfiliadosAfiliadosEncuestaFormaRapida()
+    End Sub
+
+    Sub mostrarDatosAll()
+        Dim sql As String
+        Dim tabla As New DataTable
+        'sql = "select * from vw_resultadoEncuestaSistemaCirculatorio"
+        sql = "select distinct(idafiliado),nombres,email,telefono,pais,fecha,'(' + codpatro + ') ' +  nompatro + ' ' + apepatro as patrocinador" & _
+        " from vw_resultadoEncuestaSistemaCirculatorio" & _
+        " order by fecha desc"
+        With operaciones
+            tabla = .DevuelveDato(sql)
+            If tabla.Rows.Count <> 0 Then
+                Me.GridView2.DataSource = tabla
+                Me.GridView2.DataBind()
+                '
+                actualizaGrilla()
+            Else
+                Me.GridView2.DataSource = Nothing
+                Me.GridView2.DataBind()
+            End If
+        End With
+    End Sub
+
+    Protected Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Me.MultiView1.ActiveViewIndex = 0
+        Me.Label5.Text = "ENCUESTA FORMA GUIADA"
+    End Sub
+
+    Protected Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Me.MultiView1.ActiveViewIndex = 1
+        Me.Label5.Text = "ENCUESTA FORMA RÁPIDA"
+    End Sub
+
+    Protected Sub GridView4_RowDeleting(sender As Object, e As GridViewDeleteEventArgs) Handles GridView4.RowDeleting
+        Dim sql As String
+        Dim idAfiliado As Integer
+        idAfiliado = Val(Me.GridView4.Rows(e.RowIndex).Cells(1).Text)
+        '
+        sql = "delete from afiliadosEncuestaSistemaCirculatorio where idafiliado=" & idAfiliado
+        With operaciones
+            .Accion(sql)
+        End With
+        '
+        sql = "delete from encuestaSistemaCirculatorio where idafiliado=" & idAfiliado
+        With operaciones
+            .Accion(sql)
+        End With
+        '
+        Me.GridView5.DataSource = Nothing
+        Me.GridView5.DataBind()
+        '
+        mostrarAfiliadosAfiliadosEncuestaFormaRapida()
+    End Sub
+
+    Protected Sub GridView4_SelectedIndexChanging(sender As Object, e As GridViewSelectEventArgs) Handles GridView4.SelectedIndexChanging
+        mostrarEncuestaFormaRapida(Me.GridView4.Rows(e.NewSelectedIndex).Cells(1).Text)
+    End Sub
+
+    Sub mostrarEncuestaFormaRapida(ByVal idAfiliado As Integer)
+        Dim sql As String
+        Dim tabla As New DataTable
+        sql = "select * from vw_resultadoencuestasistemacirculatoriorapida where idafiliado=" & idAfiliado
+        With operaciones
+            tabla = .DevuelveDato(sql)
+            If tabla.Rows.Count <> 0 Then
+                Me.GridView5.DataSource = tabla
+                Me.GridView5.DataBind()
+            Else
+                Me.GridView5.DataSource = Nothing
+                Me.GridView5.DataBind()
+            End If
+        End With
+    End Sub
+End Class

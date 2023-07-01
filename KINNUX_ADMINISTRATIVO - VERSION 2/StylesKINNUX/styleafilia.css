@@ -1,0 +1,96 @@
+/* CSS Document */
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family:Arial, Helvetica, sans-serif; font-size:12px;
+}
+
+
+
+.tabletop { background: url(../images/f_top.jpg);height:133px;}
+.tabletop2 {background:#F4F4F4; height:30px; border-bottom:#999 solid 1px; border-left:#999 solid 1px; border-right:#999 solid 1px;}
+.titletop{color:#666666; font-size:14px; font-weight:bold;
+    width: 50%;
+}
+.titletops{	color:#0081EA; font-size:14px; font-weight:bold;}
+.titletopss{color:#000000; font-size:14px; font-weight:bold;}
+a:visited {	color: #004277; font-weight:bold;}
+a:active, a:hover  { color: #001628;font-weight:bold;}
+a { color: #004277; font-weight:bold; text-decoration:none;}
+a,img{border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-size: small;
+    font-family: "Courier New", Courier, monospace;
+}
+.tablebody {border-bottom:#999 solid 1px; border-left:#999 solid 1px; border-right:#999 solid 1px;}
+.textdown{font-size:11px; text-align:center; font-weight:600; color:#666;}
+.separadormenu
+{ 
+    border-right:#999 dotted 2px;
+    height:350px;
+
+}
+.fondomenu{background:#005FAE; color:white;}
+.titleseccion{font-size:2em; background:#F4F4F4; height:25px; border:#999 solid 1px; border-radius:6px; -moz-border-radius:6px; text-align:center; color: #146295; }
+.titlesubsec{font-size:1.5em;background:#F4F4F4; border:#999 solid 1px; border-radius:6px; -moz-border-radius:6px; text-align:center; color: #146295;}
+.eventop{color:#FFF; text-align:center;}
+.tabladatheadl {color:#0081EA; background:#F4F4F4; border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; line-height:25px; text-align:center; font-weight:bold; border-left:#999 solid 1px; border-top:#999 solid 1px; border-bottom:#999 solid 1px}
+.tabladathead {color:#0081EA; background:#F4F4F4; line-height:25px; text-align:center; font-weight:bold;border-left:#999 solid 1px; border-top:#999 solid 1px; border-bottom:#999 solid 1px }
+.tabladatheadr {color:#0081EA; background:#F4F4F4; border-top-right-radius:5px; -moz-border-radius-topright:5px; line-height:25px; text-align:center; font-weight:bold; border:#999 solid 1px;}
+.tabladata {font-weight:bold; border-bottom:#999 solid 1px; border-left:#999 solid 1px; }
+.tabladatar {font-weight:bold; border-bottom:#999 solid 1px; border-left:#999 solid 1px; border-right:#999 solid 1px;}
+.tabladat {border:#999 solid 1px;border-radius:5px; -moz-border-radius:5px; }
+.logint {border:#999 solid 1px;border-radius:5px; -moz-border-radius:5px; }
+.logintextin{font-size:10px;}
+.logintextin2{font-size:12px; text-align:left}
+
+
+.weltit1 { color:#C1D72E; font-size:18px; font-weight:500;}
+.weltit2 { color:#FFFFFF; font-size:16px; font-weight:700;}
+.tabledown { background-color: #FF9900;
+	border-bottom-right-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#000000; text-align:center;
+}
+.tablelabel { background-color: #005DAB; border-radius:5px; -moz-border-radius:5px; height:25px; line-height:25px; color:#FFFFFF; font-weight:700;
+}
+
+
+/*.foott {font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#000000; text-align:center;}*/
+p {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000;}
+.textinvita1 { color:#0099FF; font-size:16px; font-weight:700;}
+.textlabels {color:#005DAB; font-size:14px; font-weight:600; line-height:30px; text-align:left;}
+.textlabels2 {color:#005DAB; font-size:14px; font-weight:500; line-height:25px; text-align:left;}
+.textlabels2_1 {color:#005DAB; font-size:14px; font-weight:500; line-height:25px; text-align:left; margin-left:10px; padding-left:10px;}
+.textlams {	color:#FF6600; 	font-size:20px; font-weight:600; line-height:32px; text-align:Center;
+}
+.botonform {font-size:16px; line-height:40px; padding:10px; font-weight:600;}
+.titulos { color:#0099FF; font-size:20px; font-weight:700; text-align:center;}
+
+.backtext{font-size:12px; font-weight:600;}
+.backtextpoint{font-size:14px; color:#0099FF; font-weight:600;}
+#menuwrap{margin-left:20%;}
+#menuwrap img {margin-right:20px;}
+.titulosloc { color:#0099FF; font-size:16px; font-weight:900; text-align:center;}
+.form-block:hover {background: #EFF4CA;}
+
+.campver
+{border:1px #99BF02 solid; 
+ -webkit-border-radius: 4px; 
+ -moz-border-radius: 4px; 
+ border-radius: 4px; 
+ height:20px;
+ margin:0px;
+ /*padding-left:5px;*/
+}
+
+.contenidoMain {
+    padding:10px;
+}
+
+
+

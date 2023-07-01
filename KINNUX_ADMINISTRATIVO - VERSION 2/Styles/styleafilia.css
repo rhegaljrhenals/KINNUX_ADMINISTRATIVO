@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: white;
+	background-image: url(../images/bakgen.jpg);
+	background-repeat: repeat-x center top ; font-family:Arial, Helvetica, sans-serif; font-size:14px;
+}
+
+.tablecontent { background-color:#FFFFFF;border-radius:8px; -moz-border-radius:8px;}
+.weltit1 { color:#C1D72E; font-size:18px; font-weight:500;}
+.weltit2 { color:#FFFFFF; font-size:16px; font-weight:700;}
+.tabledown { background-color: #FF9900;
+	border-bottom-right-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#000000; text-align:center;
+}
+.tablelabel { background-color: #005DAB; border-radius:5px; -moz-border-radius:5px; height:25px; line-height:25px; color:#FFFFFF; font-weight:700;
+}
+.tabletop2 { background-color: #FFCC00;
+}
+
+/*.foott {font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#000000; text-align:center;}*/
+p {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000;}
+.textinvita1 { color:#0099FF; font-size:16px; font-weight:700;}
+.textlabelslog {
+	color:#333333;
+	font-size:14px;
+	font-weight:600;
+	line-height:30px;
+	text-align:left;
+}
+.textlabels2 {color:#005DAB; font-size:14px; font-weight:500; line-height:25px; text-align:left;}
+.textlabels2_1 {color:#005DAB; font-size:14px; font-weight:500; line-height:25px; text-align:left; margin-left:10px; padding-left:10px;}
+.textlams {	color:#FF6600; 	font-s
+.botonform {font-size:16px; line-height:40px; padding:10px; font-weight:600;}
+ont-size:16px; line-height:40px; padding:10px; font-weight:600;}
+.titulos { color:#0099FF; font-size:20px; font-weight:700; text-align:center;}
+a:visited {
+	color: #0066CC;
+}
+a:hover {
+	color:
+a:link {color: #0066CC;
+    font-size: x-small;
+}
+none;
+}
+:
+a:link {color: #0066CC;
+    font-size: x-small;
+}
+none;
+}
+a:active { color: #0066CC; }
+.backtext{font-size:12px; font-weight:600;}
+.backtextpoint{font-size:14px; color:#0099FF; font-weight:600;}
+#menuwrap{float:center; margin-left:20%;}
+#menuwrap img {margin-right:20px;}
+.titulosloc { color:#0099FF; font-size:16px; font-weight:900; text-align:center;}
+.form-block:hover {background: #EFF4CA;}
+.campsform {padding:5px 5px 5px 5px; color: #006699;}
+.home{padding:0px 20px 0px 30px; background:url(../images/home.png) no-repeat left;}
